@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {  FaTwitter, FaInstagram, FaTelegram } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaTelegram } from "react-icons/fa";
 
 const ComingSoon: React.FC = () => {
   return (
@@ -16,32 +16,33 @@ const ComingSoon: React.FC = () => {
         </p>
         <div className="flex justify-center mt-4 space-x-6 mb-8">
           <a
-            href="#"
+            href="https://t.me/BlockLensOrg"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-200 hover:text-white transition duration-300 text-4xl  md:text-5xl"
-            aria-label="Facebook"
+            aria-label="Telegram"
           >
             <FaTelegram />
           </a>
           <a
-            href="#"
+            href="http://x.com/BlockLensOrg"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-300 hover:text-white transition duration-300 text-4xl md:text-5xl"
             aria-label="Twitter"
           >
             <FaTwitter />
           </a>
           <a
-            href="#"
+            href="https://instagram.com/BlockLensOrg"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-300 hover:text-white transition duration-300 text-4xl md:text-5xl"
             aria-label="Instagram"
           >
             <FaInstagram />
           </a>
         </div>
-        {/* <button
-          className="px-6 py-2 text-lg md:text-m font-bold text-white bg-gray-600 hover:bg-indigo-700 rounded-lg transition duration-300"
-        >
-          Submit
-        </button> */}
       </div>
     </div>
   );
