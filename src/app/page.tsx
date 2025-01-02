@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { FaTwitter, FaInstagram, FaTelegram } from "react-icons/fa";
+import { FaInstagram, FaTelegram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const ComingSoon: React.FC = () => {
   return (
@@ -31,7 +32,7 @@ const ComingSoon: React.FC = () => {
             className="text-gray-300 hover:text-white transition duration-300 text-4xl md:text-5xl"
             aria-label="Twitter"
           >
-            <FaTwitter />
+            <FaXTwitter />
           </a>
           <a
             href="https://instagram.com/BlockLensOrg"
