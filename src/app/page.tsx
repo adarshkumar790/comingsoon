@@ -25,7 +25,7 @@ const Home = () => {
           <img
             src={icon}
             alt={`Icon ${i + 1}`}
-            className="w-10 h-10" 
+            className="w-12 h-12" 
           />
         </div>
       );
@@ -42,8 +42,8 @@ const Home = () => {
         {/* Text inside the circle */}
         <div className="text-center text-white">
   {/* Logo centered above the text */}
-        <div className="flex justify-center mb-4"> {/* Added flex to center and mb for margin */}
-        <Image src="/logomusics.png" alt="logomusic" width={140} height={140} /> {/* Adjusted width and height */}
+        <div className="flex justify-center"> {/* Added flex to center and mb for margin */}
+        <Image src="/logomusics.png" alt="logomusic" width={100} height={100} /> {/* Adjusted width and height */}
         </div>
         <h1 className="text-4xl font-bold">THE ART</h1>
         <h1 className="text-4xl font-bold">OF MUSIC</h1>
