@@ -21,11 +21,30 @@ const movies: Movie[] = [
 
 const MovieGallery = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   // Filter movies based on search term
   const filteredMovies = movies.filter((movie) =>
     movie.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Filtered titles for suggestions
+  const titleSuggestions = movies
+    .map((movie) => movie.title)
+    .filter((title) =>
+      title.toLowerCase().startsWith(searchTerm.toLowerCase())
+    );
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    setIsDropdownVisible(value.trim() !== "");
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setSearchTerm(suggestion);
+    setIsDropdownVisible(false);
+  };
 
   return (
     <>
@@ -38,14 +57,28 @@ const MovieGallery = () => {
         {/* Add padding-top to account for Navbar height */}
         <div className="w-3/4">
           {/* Search Bar */}
-          <div className="flex justify-end p-4">
+          <div className="relative flex justify-end p-4">
             <input
               type="text"
               placeholder="Search Movies"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleInputChange}
               className="bg-transparent border border-red-400 text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
             />
+            {/* Dropdown Suggestions */}
+            {isDropdownVisible && titleSuggestions.length > 0 && (
+              <div className="absolute top-full right-0 bg-black border border-red-400 text-white rounded mt-1 max-h-40 overflow-y-auto shadow-lg z-20">
+                {titleSuggestions.map((suggestion, index) => (
+                  <div
+                    key={index}
+                    className="p-2 hover:bg-red-500 cursor-pointer"
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Movies Grid */}
