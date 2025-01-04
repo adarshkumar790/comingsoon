@@ -10,13 +10,21 @@ const Navbar = () => {
 
   const menuItems = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
+    { href: "/story", label: "Our Story" },
+    { href: "/music", label: "Music" },
+    { href: "/news", label: "News" },
+    { href: "/blog", label: "Blog" },
+    { href: "/connect", label: "Connect" },
   ];
 
   return (
-    <nav className="bg-purple-900 text-white fixed w-full z-50">
+    <nav
+      className={`fixed w-full z-50 transition-colors duration-300 ${
+        isOpen
+          ? "bg-transparent shadow-none"
+          : "bg-transparent shadow-none shadow-md"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
@@ -34,7 +42,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-white focus:outline-none"
+              className="text-red-400 focus:outline-none"
             >
               {isOpen ? (
                 <svg
@@ -74,8 +82,8 @@ const Navbar = () => {
 
       {/* Sliding Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-purple-800 text-white w-64 transition-transform transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 h-full bg-purple-400 text-white w-64 transition-transform transform ${
+          isOpen ? "translate-x-0 bg-gradient-to-b from-purple-800 via-purple-800 to-purple-800 mt-28" : "-translate-x-full bg-transparent shadow-none mt-24"
         }`}
       >
         <div className="flex flex-col p-4 space-y-4">
@@ -83,7 +91,7 @@ const Navbar = () => {
             <Link
               key={item.href}
               href={item.href}
-              className="text-lg font-semibold hover:text-yellow-400"
+              className="text-lg font-semibold hover:text-yellow-400 text-blue-200 mt-16 ml-8"
             >
               {item.label}
             </Link>

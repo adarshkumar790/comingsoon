@@ -51,13 +51,13 @@ const Home = () => {
         <h1 className="text-4xl font-bold">THE</h1>
         <h1 className="text-4xl font-bold"> ART OF MUSIC</h1>
         <h1 className="text-4xl font-bold">WITH</h1>
-        <div className="flex justify-center -mt-4"> {/* Added flex to center and mb for margin */}
+        <div className="flex justify-center -mt-4"> 
         <Image src="/logomusics.png" alt="logomusic" width={100} height={100} /> {/* Adjusted width and height */}
         </div>
         </div>
 
 
-        {/* Rotating icons along the circle */}
+        
         <div className="absolute w-full h-full animate-icon-spin">
           {generateIcons(iconSources)}
         </div>
