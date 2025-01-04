@@ -18,16 +18,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-colors duration-300 ${
-        isOpen
-          ? "bg-transparent shadow-none"
-          : "bg-transparent shadow-none shadow-md"
-      }`}
-    >
+    <nav className="fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
+          {/* Menu Toggle Button */}
           <div className="flex items-center">
             <button
               onClick={toggleMenu}
@@ -66,33 +60,21 @@ const Navbar = () => {
               )}
             </button>
           </div>
-          {/* <div className="flex-shrink-0">
-            <Link href="/">
-              <img
-                src="/logomusics.png" // Replace with your logo
-                alt="Logo"
-                className="w-16 h-16"
-              />
-            </Link>
-          </div> */}
-
-          {/* Menu Button */}
-         
         </div>
       </div>
 
       {/* Sliding Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-purple-400 text-white md:w-40 w-32  md:ml-0 -ml-8  transition-transform transform ${
-          isOpen ? "translate-x-0 bg-gradient-to-b from-purple-800 via-purple-800 to-purple-800 mt-28" : "-translate-x-full bg-transparent shadow-none mt-24"
+        className={`fixed top-0 left-0 h-full text-white md:w-32 w-32 transition-transform transform ${
+          isOpen ? "translate-x-0 mt-28" : "-translate-x-full mt-24"
         }`}
       >
-        <div className="flex flex-col p-2  md:p-3 space-y-3">
+        <div className="flex flex-col items-start p-2 md:p-3 space-y-3">
           {menuItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-lg font-semibold hover:text-yellow-400 text-blue-200 mt-16 ml-8"
+              className="text-lg font-semibold text-blue-200 hover:text-yellow-400 text-center underline underline-offset-8"
             >
               {item.label}
             </Link>
