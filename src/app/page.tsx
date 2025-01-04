@@ -1,3 +1,5 @@
+"use client"
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
 const Home = () => {
@@ -19,7 +21,7 @@ const Home = () => {
           key={i}
           className="absolute"
           style={{
-            transform: `rotate(${angle}deg) translate(0, -180px)`, 
+            transform: `rotate(${angle}deg) translate(0, -100px)`, 
           }}
         >
           <img
@@ -33,21 +35,25 @@ const Home = () => {
   };
 
   return (
-    <div className="relative w-screen h-screen bg-gradient-to-b from-purple-900 via-purple-800 to-purple-900 flex items-center justify-center overflow-hidden">
+    <>
+    <Navbar/>
+  
+    <div className="relative w-screen h-screen bg-gradient-to-b from-purple-900 via-purple-600 to-purple-400 flex items-center justify-center overflow-hidden">
       {/* Circle border */}
-      <div className="relative w-[400px] h-[400px] rounded-full border-4 border-dotted border-yellow-400 flex items-center justify-center">
+      <div className="relative w-[400px] h-[400px] rounded-full border-4 border-dotted border-blue-400 flex items-center justify-center">
         {/* Flowing current effect */}
         <div className="absolute w-full h-full current-effect animate-flowing-current"></div>
 
         {/* Text inside the circle */}
         <div className="text-center text-white">
   {/* Logo centered above the text */}
-        <div className="flex justify-center"> {/* Added flex to center and mb for margin */}
+        
+        <h1 className="text-4xl font-bold">THE</h1>
+        <h1 className="text-4xl font-bold"> ART OF MUSIC</h1>
+        <h1 className="text-4xl font-bold">WITH</h1>
+        <div className="flex justify-center -mt-4"> {/* Added flex to center and mb for margin */}
         <Image src="/logomusics.png" alt="logomusic" width={100} height={100} /> {/* Adjusted width and height */}
         </div>
-        <h1 className="text-4xl font-bold">THE ART</h1>
-        <h1 className="text-4xl font-bold">OF MUSIC</h1>
-        <h1 className="text-4xl font-bold">WITH MMW</h1>
         </div>
 
 
@@ -72,12 +78,13 @@ const Home = () => {
       {/* Character image */}
       <div className="absolute right-10 bottom-10">
         <img
-          src="/musicman1.png"
+          src="/lata.png"
           alt="Character"
           className="w-[350px] h-[400px]"
         />
       </div>
     </div>
+    </>
   );
 };
 
