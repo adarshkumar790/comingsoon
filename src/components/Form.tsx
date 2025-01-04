@@ -2,7 +2,7 @@ import React from "react";
 
 const Form = () => {
   return (
-    <div className="bg-black text-white p-6 -mt-8 rounded-lg shadow-lg">
+    <div className="bg-black text-white p-6 md:-mt-8 -mt-0  rounded-lg shadow-lg">
       <h2 className="text-xl font-bold mb-4 uppercase tracking-wider">Connect</h2>
       <form>
         <div className="space-y-4">

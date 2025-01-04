@@ -16,7 +16,7 @@ const Contact = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mr-4 ml-4">
         <div className="w-full max-w-5xl grid grid-cols-12 gap-4">
           {/* Google Map Section */}
           <div className="col-span-12 lg:col-span-6">
