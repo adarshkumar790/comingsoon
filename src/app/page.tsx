@@ -43,7 +43,7 @@ const Home = () => {
         <div className="text-center text-white">
   {/* Logo centered above the text */}
         <div className="flex justify-center mb-4"> {/* Added flex to center and mb for margin */}
-        <Image src="/logomusics.png" alt="logomusic" width={80} height={80} /> {/* Adjusted width and height */}
+        <Image src="/logomusics.png" alt="logomusic" width={140} height={140} /> {/* Adjusted width and height */}
         </div>
         <h1 className="text-4xl font-bold">THE ART</h1>
         <h1 className="text-4xl font-bold">OF MUSIC</h1>
