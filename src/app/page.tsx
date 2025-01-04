@@ -1,28 +1,35 @@
 import Image from "next/image";
 
 const Home = () => {
-  // Generate icons evenly spaced along the circle
-  const generateIcons = (count: number) => {
-    const icons = [];
-    for (let i = 0; i < count; i++) {
-      const angle = (i * (360 / count)); // Angle in degrees
-      icons.push(
+  
+  const iconSources = [
+    "/music1.png", 
+    "/music2.png", 
+    "/music3.png", 
+    "/music4.png", 
+    "/music5.png", 
+  ];
+
+  const generateIcons = (icons: string[]) => {
+    const count = icons.length;
+    return icons.map((icon, i) => {
+      const angle = (i * 360) / count; 
+      return (
         <div
           key={i}
           className="absolute"
           style={{
-            transform: `rotate(${angle}deg) translate(0, -180px)`, // Position along the circle
+            transform: `rotate(${angle}deg) translate(0, -180px)`, 
           }}
         >
           <img
-            src="/musicold.png"
-            alt={`Music Icon ${i + 1}`}
-            className="w-10 h-10"
+            src={icon}
+            alt={`Icon ${i + 1}`}
+            className="w-10 h-10" 
           />
         </div>
       );
-    }
-    return icons;
+    });
   };
 
   return (
@@ -34,14 +41,19 @@ const Home = () => {
 
         {/* Text inside the circle */}
         <div className="text-center text-white">
-          <h1 className="text-4xl font-bold">THE ART</h1>
-          <h2 className="text-5xl font-bold">OF MUSIC</h2>
-          <h3 className="text-4xl font-bold">WITH MMW</h3>
+  {/* Logo centered above the text */}
+        <div className="flex justify-center mb-4"> {/* Added flex to center and mb for margin */}
+        <Image src="/logomusics.png" alt="logomusic" width={80} height={80} /> {/* Adjusted width and height */}
         </div>
+        <h1 className="text-4xl font-bold">THE ART</h1>
+        <h1 className="text-4xl font-bold">OF MUSIC</h1>
+        <h1 className="text-4xl font-bold">WITH MMW</h1>
+        </div>
+
 
         {/* Rotating icons along the circle */}
         <div className="absolute w-full h-full animate-icon-spin">
-          {generateIcons(8)} {/* Generate 8 icons */}
+          {generateIcons(iconSources)}
         </div>
       </div>
 
