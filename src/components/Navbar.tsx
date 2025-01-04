@@ -83,11 +83,11 @@ const Navbar = () => {
 
       {/* Sliding Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-purple-400 text-white w-64 transition-transform transform ${
+        className={`fixed top-0 left-0 h-full bg-purple-400 text-white md:w-40 w-32  md:ml-0 -ml-8  transition-transform transform ${
           isOpen ? "translate-x-0 bg-gradient-to-b from-purple-800 via-purple-800 to-purple-800 mt-28" : "-translate-x-full bg-transparent shadow-none mt-24"
         }`}
       >
-        <div className="flex flex-col p-4 space-y-4">
+        <div className="flex flex-col p-2  md:p-3 space-y-3">
           {menuItems.map((item) => (
             <Link
               key={item.href}
