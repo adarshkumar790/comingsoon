@@ -38,7 +38,7 @@ const AdminForm: React.FC = () => {
     try {
       if (editingMovieId) {
         // Update movie
-        await axios.put(`http://localhost:5000/movies/${editingMovieId}`, {
+        await axios.put(`https://musicbackend-u27q.onrender.com/movies/${editingMovieId}`, {
           title,
           image,
           link,
@@ -65,7 +65,7 @@ const AdminForm: React.FC = () => {
   // Handle delete
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/movies/${id}`);
+      await axios.delete(`https://musicbackend-u27q.onrender.com/movies/${id}`);
       alert("Movie deleted successfully!");
       fetchMovies();
     } catch (error: unknown) {
