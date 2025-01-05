@@ -1,27 +1,37 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import axios from "axios";
+import { HiPlay } from "react-icons/hi"; // Import Play icon from Heroicons
 
 interface Movie {
-  id: number;
+  _id: string;
   title: string;
   image: string;
+  link: string;
+  createdBy: string;
+  createdAt: string; // Assuming the backend provides this field
 }
 
-const movies: Movie[] = [
-  { id: 1, title: "Bhakshak", image: "/movie1.jpg" },
-  { id: 2, title: "Dunki", image: "/movie2.jpg" },
-  { id: 3, title: "Jawan", image: "/movie3.jpg" },
-  { id: 4, title: "Darlings", image: "/movie4.jpg" },
-  { id: 5, title: "al", image: "/movie5.jpg" },
-  { id: 6, title: "kl", image: "/movie7.jpg" },
-];
-
 const MovieGallery = () => {
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  // Fetch movies from the backend
+  const fetchMovies = async () => {
+    try {
+      const response = await axios.get<Movie[]>("https://musicbackend-u27q.onrender.com/movies");
+      setMovies(response.data);
+    } catch (error: unknown) {
+      alert("Error fetching movies: " + (error as Error).message);
+    }
+  };
 
   // Filter movies based on search term
   const filteredMovies = movies.filter((movie) =>
@@ -82,20 +92,47 @@ const MovieGallery = () => {
           </div>
 
           {/* Movies Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-20">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-20">
             {filteredMovies.map((movie) => (
-              <div key={movie.id} className="relative group">
-                {/* Movie Image */}
-                <Image
-                  src={movie.image}
-                  alt={movie.title}
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300"
-                />
-                {/* Movie Title */}
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2 text-center font-semibold transition-opacity duration-300 opacity-100 group-hover:opacity-0">
-                  {movie.title}
+              <div
+                key={movie._id}
+                className="relative group border border-pink-500 p-1 flex flex-col space-y-4"
+                style={{ minHeight: "400px" }} // Added min-height for better layout control
+              >
+                {/* Movie Image with link */}
+                <a href={movie.link} target="_blank" rel="noopener noreferrer">
+                  <div className="w-full h-96 relative">
+                    <Image
+                      src={movie.image}
+                      alt={movie.title}
+                      layout="fill" // This ensures the image covers the full div
+                      objectFit="cover" // Ensures the image covers the container without distortion
+                      className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                    />
+                    
+                    {/* Play Icon */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <HiPlay size={50} className="cursor-pointer" />
+                    </div>
+                  </div>
+                </a>
+
+                {/* Movie Info Box */}
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4 flex justify-between items-center w-full opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                  {/* Left: Created By */}
+                  <div className="text-sm text-gray-300">
+                    <strong></strong> {movie.createdBy}
+                  </div>
+
+                  {/* Center: Title */}
+                  <div className="font-semibold text-lg text-center">
+                    {movie.title}
+                  </div>
+
+                  {/* Right: Created Date */}
+                  <div className="text-sm text-gray-500">
+                    <strong></strong> {new Date(movie.createdAt).toLocaleDateString()}
+                  </div>
                 </div>
               </div>
             ))}
