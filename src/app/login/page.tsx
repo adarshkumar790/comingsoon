@@ -1,76 +1,106 @@
 "use client"
-import { useState } from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { useState, useEffect } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import { FiRefreshCw } from "react-icons/fi";
+import { FaCheck, FaTimes } from "react-icons/fa";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [captchaInput, setCaptchaInput] = useState('');
-  const [captcha, setCaptcha] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [captcha, setCaptcha] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const router = useRouter();
+  const [passwordValidation, setPasswordValidation] = useState({
+    hasUppercase: false,
+    hasLowercase: false,
+    hasNumber: false,
+    hasSymbol: false,
+  });
 
-  // Hardcoded username and password for demo purposes
-  const correctUsername = 'ledgerline';
-  const correctPassword = 'ledgerline@123';
+  const correctUsername = "ledgerline";
+  const correctPassword = "Ledger@790";
 
-  // Generate a new CAPTCHA when the component loads
   const generateCaptcha = () => {
     const randomCaptcha = Math.random().toString(36).substring(2, 8);
     setCaptcha(randomCaptcha);
   };
 
-  // Validate the form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (username !== correctUsername || password !== correctPassword) {
-      setErrorMessage('Invalid username or password!');
+      toast.error("Invalid username or password!", {
+        position: "top-center",
+        autoClose: 3000,
+      });
       return;
     }
 
     if (password !== confirmPassword) {
-      setErrorMessage('Passwords do not match!');
+      toast.error("Passwords do not match!", {
+        position: "top-center",
+        autoClose: 3000,
+      });
       return;
     }
 
     if (captchaInput !== captcha) {
-      setErrorMessage('Invalid CAPTCHA. Please try again.');
+      toast.error("Invalid CAPTCHA. Please try again.", {
+        position: "top-center",
+        autoClose: 3000,
+      });
       return;
     }
 
-    setErrorMessage('');
-    router.push('/admin'); // Redirect to admin page on successful login
+    setIsLoggedIn(true);
+    toast.success("Login successful! Redirecting to admin page...", {
+      position: "top-center",
+      autoClose: 3000,
+    });
   };
 
-  // Generate CAPTCHA on initial render
-  useState(() => {
+  const validatePassword = (value: string) => {
+    setPasswordValidation({
+      hasUppercase: /[A-Z]/.test(value),
+      hasLowercase: /[a-z]/.test(value),
+      hasNumber: /[0-9]/.test(value),
+      hasSymbol: /[!@#$%^&*(),.?":{}|<>]/.test(value),
+    });
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPassword(value);
+    validatePassword(value);
+  };
+
+  useEffect(() => {
     generateCaptcha();
-  });
+  }, []);
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Login Page</title>
-      </Head>
-      <div className="flex min-h-screen items-center justify-center bg-gray-100">
-        <div className="w-full max-w-md p-8 bg-white rounded shadow-md">
-          <h1 className="text-2xl font-bold text-center mb-6">Login</h1>
-          {errorMessage && (
-            <div className="mb-4 text-red-600 text-center">{errorMessage}</div>
-          )}
+      </Head> */}
+      <ToastContainer />
+      <div className="flex min-h-screen items-center justify-center  bg-gradient-to-br from-gray-100 to-gray-300 px-4">
+        <div className="w-full max-w-md p-8 bg-white mt-2 mb-2 rounded-xl shadow-lg border border-gray-200">
+          <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Login</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="username" className="block text-sm font-bold text-pink-700">
                 Username
               </label>
               <input
                 type="text"
                 id="username"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 border border-blue-400 text-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -78,41 +108,85 @@ const LoginPage = () => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="password" className="block text-sm font-bold text-pink-700">
                 Password
               </label>
               <input
                 type="password"
                 id="password"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 border border-blue-400 text-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlePasswordChange}
                 required
               />
+              <div className="mt-2">
+                <p className="text-sm text-blue-500">
+                  {passwordValidation.hasUppercase ? (
+                    <FaCheck className="inline text-green-600" />
+                  ) : (
+                    <FaTimes className="inline text-red-600" />
+                  )}{" "}
+                  Contains an uppercase letter
+                </p>
+                <p className="text-sm text-blue-500">
+                  {passwordValidation.hasLowercase ? (
+                    <FaCheck className="inline text-green-600" />
+                  ) : (
+                    <FaTimes className="inline text-red-600" />
+                  )}{" "}
+                  Contains a lowercase letter
+                </p>
+                <p className="text-sm text-blue-500">
+                  {passwordValidation.hasNumber ? (
+                    <FaCheck className="inline text-green-600" />
+                  ) : (
+                    <FaTimes className="inline text-red-600" />
+                  )}{" "}
+                  Contains a number
+                </p>
+                <p className="text-sm text-blue-500">
+                  {passwordValidation.hasSymbol ? (
+                    <FaCheck className="inline text-green-600" />
+                  ) : (
+                    <FaTimes className="inline text-red-600" />
+                  )}{" "}
+                  Contains a symbol
+                </p>
+              </div>
             </div>
 
             <div className="mb-4">
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="confirmPassword" className="block text-sm font-bold text-pink-700">
                 Confirm Password
               </label>
               <input
                 type="password"
                 id="confirmPassword"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 border border-blue-400 text-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
             </div>
 
-            <div className="mb-4">
-              <label htmlFor="captcha" className="block text-sm font-medium text-gray-700">
-                CAPTCHA: <span className="font-bold">{captcha}</span>
+            <div className="mb-4 relative">
+              <label htmlFor="captcha" className="block text-sm font-bold text-pink-700">
+                CAPTCHA:
               </label>
+              <div className="flex items-center">
+                <span className="font-bold text-green-600">{captcha}</span>
+                <button
+                  type="button"
+                  onClick={generateCaptcha}
+                  className="ml-2 text-red-500 hover:text-blue-700 focus:outline-none"
+                >
+                  <FiRefreshCw size={20} />
+                </button>
+              </div>
               <input
                 type="text"
                 id="captcha"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-2 block w-full px-4 py-2 border border-blue-400 text-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 value={captchaInput}
                 onChange={(e) => setCaptchaInput(e.target.value)}
                 required
@@ -126,12 +200,14 @@ const LoginPage = () => {
               Submit
             </button>
           </form>
-          <button
-            onClick={generateCaptcha}
-            className="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-          >
-            Refresh CAPTCHA
-          </button>
+          {isLoggedIn && (
+            <Link
+              href="/admin"
+              className="mt-4 block text-center bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
+            >
+              Admin Page
+            </Link>
+          )}
         </div>
       </div>
     </>

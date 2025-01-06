@@ -16,20 +16,21 @@ const Story = () => {
         </div>
 
         <div className="container mx-auto px-4 md:px-4 lg:px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 items-center">
-            {/* Left Image */}
-            <div className="flex justify-center">
+          {/* Adjusting the grid for desktop layout */}
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+            {/* Left Image (on larger screens) */}
+            <div className="flex justify-center lg:col-span-1">
               <Image
                 src="/twinkle.jpeg" // Replace with your image path
                 alt="Gauri Khan"
                 width={400}
-                height={600} // Increased height
-                className="rounded-lg shadow-lg object-cover h-[500px] w-[300px]" // Tailwind CSS classes added
+                height={600} // Adjusted height
+                className="rounded-lg shadow-lg object-cover md:h-[500px] md:w-[300px] w-[250px] h-[400px]" // Responsive size for images
               />
             </div>
 
-            {/* Text Content */}
-            <div className="md:col-span-1 text-left">
+            {/* Text Content in the Middle (on larger screens) */}
+            <div className="lg:col-span-1 text-left md:px-4 px-2">
               <p className="text-lg leading-relaxed">
                 Founded in 2002 by iconic Indian actor Shah Rukh Khan, and producer
                 and interior designer Gauri Khan, Red Chillies Entertainment is a
@@ -44,14 +45,14 @@ const Story = () => {
               </p>
             </div>
 
-            {/* Right Image */}
-            <div className="flex justify-center">
+            {/* Right Image (on larger screens) */}
+            <div className="flex justify-center lg:col-span-1">
               <Image
                 src="/akashay.jpeg" // Replace with your image path
                 alt="Shah Rukh Khan"
                 width={450}
-                height={700} // Increased height
-                className="rounded-lg shadow-lg object-cover h-[500px] w-[300px]" // Tailwind CSS classes added
+                height={700} // Adjusted height
+                className="rounded-lg shadow-lg object-cover md:h-[500px] md:w-[300px] w-[250px] h-[400px]" // Responsive size for images
               />
             </div>
           </div>
