@@ -17,14 +17,14 @@ const Home = () => {
     "/pawansingh.png",
     "/udit.png",
     "/kumar.png",
-  ]; // Array of character images
+  ]; 
 
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % characterImages.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5000); 
     return () => clearInterval(interval);
   }, [characterImages.length]);
 
@@ -43,7 +43,7 @@ const Home = () => {
           <img
             src={icon}
             alt={`Icon ${i + 1}`}
-            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" // Responsive icon size
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" 
           />
         </div>
       );
@@ -54,13 +54,13 @@ const Home = () => {
     <>
       <Navbar />
       <div className="relative w-screen h-screen bg-gradient-to-b from-purple-900 via-purple-600 to-purple-400 flex items-center justify-center overflow-hidden">
-        {/* Circle and Content */}
+      
         <div className="flex flex-col items-center md:items-start">
           <div className="relative w-[200px] h-[200px] mb-24 md:mb-0 md:mr-40 sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] rounded-full border-4 border-dotted border-blue-400 flex items-center justify-center">
-            {/* Flowing current effect */}
+            
             <div className="absolute w-full h-full current-effect animate-flowing-current"></div>
 
-            {/* Text inside the circle */}
+          
             <div className="text-center text-white">
               <h1 className="text-lg sm:text-2xl md:text-4xl font-bold">THE</h1>
               <h1 className="text-lg sm:text-2xl md:text-4xl font-bold">
@@ -73,28 +73,28 @@ const Home = () => {
                   alt="logomusic"
                   width={60}
                   height={60}
-                  className="sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]" // Adjusted size
+                  className="sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]" 
                 />
               </div>
             </div>
 
-            {/* Rotating Icons */}
+            
             <div className="absolute w-full h-full animate-icon-spin">
               {generateIcons(iconSources)}
             </div>
           </div>
 
-          {/* Character image for mobile */}
+          
           <div className="mt-6 sm:mt-8 md:hidden">
             <img
-              src={characterImages[currentImage]} // Rotating character images
+              src={characterImages[currentImage]} 
               alt="Character"
-              className="w-[200px] h-[250px] sm:w-[300px] sm:h-[350px]" // Added shadow and rounded corners
+              className="w-[200px] h-[250px] sm:w-[300px] sm:h-[350px]" 
             />
           </div>
         </div>
 
-        {/* Background image for desktop */}
+  
         <div className="absolute right-0 top-4 w-[60%] h-full md:w-[50%] z-[-1]">
           <Image
             src="/bgmusic.png"
@@ -106,12 +106,12 @@ const Home = () => {
           />
         </div>
 
-        {/* Character image for desktop */}
+        
         <div className="absolute right-12 mt-24 mb-16 hidden md:block">
           <img
-            src={characterImages[currentImage]} // Rotating character images
+            src={characterImages[currentImage]} 
             alt="Character"
-            className="w-[350px] h-[400px]" // Added shadow and rounded corners
+            className="w-[350px] h-[400px]" 
           />
         </div>
       </div>

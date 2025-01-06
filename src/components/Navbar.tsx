@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav className="fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Menu Toggle Button */}
+
           <div className="flex items-center">
             <button
               onClick={toggleMenu}
@@ -64,7 +64,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Sliding Menu */}
+
       <div
         className={`fixed top-0 left-0 h-full text-white md:w-32 w-32 transition-transform transform ${
           isOpen ? "translate-x-0 mt-28" : "-translate-x-full mt-24"

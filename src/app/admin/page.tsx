@@ -22,7 +22,7 @@ const AdminForm: React.FC = () => {
     fetchMovies();
   }, []);
 
-  // Fetch movies from the backend
+  
   const fetchMovies = async () => {
     try {
       const response = await axios.get<Movie[]>("https://musicbackend-u27q.onrender.com/movies");
@@ -32,12 +32,12 @@ const AdminForm: React.FC = () => {
     }
   };
 
-  // Handle submit for adding or updating a movie
+  
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (editingMovieId) {
-        // Update movie
+        
         await axios.put(`https://musicbackend-u27q.onrender.com/movies/${editingMovieId}`, {
           title,
           image,
@@ -46,7 +46,7 @@ const AdminForm: React.FC = () => {
         });
         alert("Movie updated successfully!");
       } else {
-        // Add new movie
+    
         await axios.post("https://musicbackend-u27q.onrender.com/movies", {
           title,
           image,
@@ -62,7 +62,6 @@ const AdminForm: React.FC = () => {
     }
   };
 
-  // Handle delete
   const handleDelete = async (id: string) => {
     try {
       await axios.delete(`https://musicbackend-u27q.onrender.com/movies/${id}`);
@@ -73,7 +72,7 @@ const AdminForm: React.FC = () => {
     }
   };
 
-  // Handle edit
+  
   const handleEdit = (movie: Movie) => {
     setEditingMovieId(movie._id);
     setTitle(movie.title);
@@ -82,7 +81,7 @@ const AdminForm: React.FC = () => {
     setCreatedBy(movie.createdBy);
   };
 
-  // Reset form
+  
   const resetForm = () => {
     setTitle("");
     setImage("");
@@ -93,7 +92,7 @@ const AdminForm: React.FC = () => {
 
   return (
     <div className="container mx-auto p-6">
-      {/* Form Section */}
+
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg mb-8">
         <h2 className="text-2xl font-semibold text-white mb-6 text-center">
           {editingMovieId ? "Edit Movie" : "Add New Movie"}
@@ -151,7 +150,7 @@ const AdminForm: React.FC = () => {
         </form>
       </div>
 
-      {/* Movie List Section */}
+      
       <div>
         <h2 className="text-2xl font-bold text-white mb-6 text-center">Movies List</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
