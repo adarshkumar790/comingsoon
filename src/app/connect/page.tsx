@@ -1,8 +1,12 @@
+"use client"
 import React from "react";
 import Form from "@/components/Form";
+import Navbar from "@/components/Navbar";
 
 const Contact = () => {
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-black text-white">
       {/* Header Section */}
       <div className="text-center py-12">
@@ -66,6 +70,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
