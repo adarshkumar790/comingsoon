@@ -125,7 +125,7 @@ const MovieGallery = () => {
                   </div>
 
                   {/* Center: Title */}
-                  <div className="font-semibold text-lg text-center">
+                  <div className="font-semibold text-sm text-center">
                     {movie.title}
                   </div>
 
