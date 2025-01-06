@@ -92,7 +92,7 @@ const MovieGallery = () => {
           </div>
 
           {/* Movies Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-8 mb-20">
             {filteredMovies.map((movie) => (
               <div
                 key={movie._id}
