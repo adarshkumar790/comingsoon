@@ -12,9 +12,10 @@ const Navbar = () => {
     { href: "/", label: "Home" },
     { href: "/story", label: "Our Story" },
     { href: "/music", label: "Music" },
-    { href: "/news", label: "News" },
-    { href: "/blog", label: "Blog" },
+    // { href: "/news", label: "News" },
+    // { href: "/blog", label: "Blog" },
     { href: "/connect", label: "Connect" },
+    {href:"/login", label: "admin"}
   ];
 
   return (
