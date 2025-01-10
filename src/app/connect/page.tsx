@@ -12,7 +12,7 @@ const Contact = () => {
       <div className="text-center py-12">
         <h3 className="text-3xl font-bold mb-4">Contact Us</h3>
         <p className="text-lg leading-relaxed">
-          Red Chillies Entertainments Pvt. Ltd. <br />
+          Music Melody World <br />
           Backstage, Plot no. 612, <br />
           Junction of Rama Krishna Mission Road & 15th Road, <br />
           Santacruz (West), Mumbai 400054
