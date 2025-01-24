@@ -14,6 +14,7 @@ interface Movie {
   createdAt: string; 
 }
 
+
 const MovieGallery = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
