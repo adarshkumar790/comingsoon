@@ -38,29 +38,29 @@ const Contact = () => {
 
     
           <div className="col-span-12 lg:col-span-2 text-m text-gray-400 space-y-10 lg:mt-0 mt-8 flex flex-col lg:items-start items-center">
-            <p className="text-center lg:text-left">
+            {/* <p className="text-center lg:text-left">
               <strong>Business Enquiry:</strong> <br />
-              business@redchillies.com
-            </p>
+              Contact@musicalmelodyworld.com
+            </p> */}
             <p className="text-center lg:text-left">
               <strong>Work with us:</strong> <br />
-              work@redchillies.com
+              Contact@musicalmelodyworld.com
             </p>
-            <p className="text-center lg:text-left">
+            {/* <p className="text-center lg:text-left">
               <strong>Press Enquiry:</strong> <br />
               press@redchillies.com
-            </p>
-            <p className="text-center lg:text-left">
+            </p> */}
+            {/* <p className="text-center lg:text-left">
               <strong>Creative Enquiry:</strong> <br />
               creative@redchillies.com
-            </p>
+            </p> */}
             <p className="text-center lg:text-left">
               <strong>Marketing:</strong> <br />
-              marketing@redchillies.com
+              contact@ledgerlinetech.com
             </p>
             <p className="text-center lg:text-left">
-              <strong>Anti Piracy:</strong> <br />
-              copyright@redchillies.com
+              <strong>Mob No:-</strong> <br />
+              +91 2657964445
             </p>
           </div>
         </div>

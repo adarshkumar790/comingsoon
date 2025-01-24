@@ -13,10 +13,10 @@ const Home = () => {
   ];
 
   const characterImages = [
-    "/lata.png",
-    "/pawansingh.png",
-    "/udit.png",
-    "/kumar.png",
+    "/dipak.png",
+    "/dipak2.png",
+    "/dipak3.png",
+    // "/kumar.png",
   ]; 
 
   const [currentImage, setCurrentImage] = useState(0);
