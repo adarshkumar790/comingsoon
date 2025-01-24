@@ -107,8 +107,8 @@ const MovieGallery = () => {
                       src={movie.image}
                       alt={movie.title}
                       layout="fill" 
-                      objectFit="cover" 
-                      className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                      objectFit="contain" 
+                      className="rounded-lg shadow-lg hover:scale-95 transition-transform duration-300"
                     />
                     
                     
@@ -119,7 +119,7 @@ const MovieGallery = () => {
                 </a>
 
                 
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4 flex justify-between items-center w-full opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-100 text-white p-4 flex justify-between items-center w-full opacity-100 transition-opacity duration-300 group-hover:opacity-0">
                   
                   <div className="text-sm text-gray-300">
                     <strong></strong> {movie.createdBy}
