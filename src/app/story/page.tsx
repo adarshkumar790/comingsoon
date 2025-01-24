@@ -30,19 +30,18 @@ const Story = () => {
             </div>
 
             
-            <div className="lg:col-span-1 text-left md:px-4 px-2">
-              <p className="text-lg leading-relaxed">
-                Founded in 2002 by iconic Indian actor Shah Rukh Khan, and producer
-                and interior designer Gauri Khan, Red Chillies Entertainment is a
-                fully integrated studio that has produced some of the most
-                definitive and prominent work in modern Indian cinema.
-              </p>
-              <br />
-              <p className="text-lg leading-relaxed">
-                Over the years, Red Chillies Entertainment has established itself
-                as a leading film studio and a distribution company, as well as a
-                premier visual effects studio.
-              </p>
+            <div className="lg:col-span-1 text-left  md:px-4 px-2">
+            Founded in 2024 by Dipak Baldevbhai Patel and Ms. Prahavi Pathak, Musical Melody World stands as a beacon of creativity in the entertainment industry. Built on a foundation of passion and artistry, we are a multifaceted production house dedicated to redefining the boundaries of storytelling through music, films, and digital content.
+
+At Musical Melody World, every project is a symphony of innovation and emotion. From producing heartfelt songs to crafting engaging web series and cinematic masterpieces, we thrive on creating content that deeply connects with audiences, evoking emotions that resonate long after the experience ends.
+
+As a full-fledged film studio, we bring stories to life with a seamless blend of technology, creativity, and excellence. Whether it’s a soul-stirring melody, a compelling script, or visually stunning cinematography, our team is driven by a mission to elevate entertainment to unparalleled heights.
+
+Musical Melody World is more than just a production house—it’s a creative movement that celebrates art, empowers talent, and inspires dreams.
+
+Let us take you on a journey where every beat, frame, and story redefines the essence of entertainment.
+
+
             </div>
 
           
