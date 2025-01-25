@@ -25,7 +25,7 @@ const Story = () => {
                 alt="Gauri Khan"
                 width={400}
                 height={600} 
-                className="rounded-lg shadow-lg object-cover md:h-[500px] md:w-[500px] w-[250px] h-[400px]" // Responsive size for images
+                className="rounded-lg shadow-lg object-cover md:h-[500px] md:w-[500px] w-[350px] h-[400px]" // Responsive size for images
               />
             </div>
 
@@ -51,7 +51,7 @@ Let us take you on a journey where every beat, frame, and story redefines the es
                 alt="Shah Rukh Khan"
                 width={500}
                 height={700} 
-                className="rounded-lg shadow-lg object-cover md:h-[500px] md:w-[500px] w-[250px] h-[400px]" 
+                className="rounded-lg shadow-lg object-cover md:h-[500px] md:w-[500px] w-[350px] h-[400px]" 
               />
             </div>
           </div>
