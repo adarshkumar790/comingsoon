@@ -86,7 +86,7 @@ const Home = () => {
           </div>
 
           {/* Mobile View Character */}
-          <div className="mt-6 sm:mt-8 md:hidden">
+          {/* <div className="mt-6 sm:mt-8 md:hidden">
             <div className="relative w-[200px] h-[250px] sm:w-[300px] sm:h-[350px]">
               <img
                 src={characterImages[currentImage]} 
@@ -94,7 +94,7 @@ const Home = () => {
                 className="w-full h-full object-contain rounded-lg bg-white" 
               />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Background Image */}
