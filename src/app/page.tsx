@@ -57,7 +57,7 @@ const Home = () => {
         {/* Center Content */}
         <div className="flex flex-col items-center md:items-start">
           {/* Rotating Icon and Center Text */}
-          <div className="relative w-[200px] h-[200px] mb-24 md:mb-0 md:mr-40 sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] rounded-full border-4 border-dotted border-blue-400 flex items-center justify-center">
+          <div className="relative md:ml-44 w-[200px] h-[200px] mb-24 md:mb-0 md:mr-40 sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] rounded-full border-4 border-dotted border-blue-400 flex items-center justify-center">
             {/* Current Effect */}
             <div className="absolute w-full h-full current-effect animate-flowing-current"></div>
 
