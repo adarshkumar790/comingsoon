@@ -23,7 +23,8 @@ const Contact = () => {
       
         <div className="col-span-12 lg:col-span-6">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.779765295851!2d73.16646207404982!3d22.286330943404025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc61abd55693f%3A0x4130e60366036542!2sOYO%20818011%20Flagship%20Hotel%20Samanvay!5e0!3m2!1sen!2sin!4v1737715236120!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3691.779895842414!2d73.1664621!3d22.286326!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc900681ee2cf%3A0xaf545eb66351a1ec!2sLedgerline%20Technology!5e0!3m2!1sen!2sin!4v1737781644254!5m2!1sen!2sin"
+          
           width="100%"
           height="500"
           style={{ border: 0, borderRadius: '10px' }}

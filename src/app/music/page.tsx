@@ -93,7 +93,7 @@ const MovieGallery = () => {
             <div className="flex flex-col items-center justify-center min-h-screen">
               {/* Loading Spinner */}
               <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-500"></div>
-              <p className="text-gray-400 mt-4">Loading movies...</p>
+              <p className="text-gray-400 mt-4">Loading musics...</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-20">
